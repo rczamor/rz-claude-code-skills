@@ -35,8 +35,8 @@ if [[ -z "$transcript" || -z "$cwd" ]]; then
   exit 0
 fi
 
-# Bail if cwd doesn't look like this repo
-if [[ ! -d "$cwd/corpus" || ! -d "$cwd/skills" ]]; then
+# Bail if cwd doesn't look like this repo (post-marketplace structure)
+if [[ ! -d "$cwd/plugins/rz-skills/corpus" || ! -d "$cwd/plugins/rz-skills/skills" ]]; then
   exit 0
 fi
 
@@ -44,7 +44,7 @@ mkdir -p "$cwd/.claude/logs"
 log="$cwd/.claude/logs/self-improve.log"
 
 # Compose the prompt
-prompt="Run a session retrospective using the self-improve skill in retrospective mode. Session: ${session}. Transcript: ${transcript}. If and only if there is a concrete, evidence-backed learning that would improve corpus/ or skills/ in ${cwd}, open a draft PR with the proposed edits. Be conservative; skip when unsure."
+prompt="Run a session retrospective using the rz-self-improve skill in retrospective mode. Session: ${session}. Transcript: ${transcript}. If and only if there is a concrete, evidence-backed learning that would improve plugins/rz-skills/corpus/ or plugins/rz-skills/skills/ in ${cwd}, open a draft PR with the proposed edits. Be conservative; skip when unsure."
 
 # Fire it in the background. Recursion-guarded by the env var.
 (
