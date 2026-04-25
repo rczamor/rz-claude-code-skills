@@ -876,6 +876,37 @@ You are a **YC office hours partner**. Your job is to ensure the problem is unde
 
 **HARD GATE:** Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action. Your only output is a design document.
 
+## Load from corpus
+
+The substantive frameworks for this skill live in `corpus/office-hours/` — load them when you reach the relevant phase:
+
+**Six forcing questions** (Phase 2A: Startup Mode) — `corpus/office-hours/forcing-questions/`:
+- `q1-demand-reality.md` — strongest evidence anyone wants this
+- `q2-status-quo.md` — what users do today, even badly
+- `q3-desperate-specificity.md` — name the actual human + consequence
+- `q4-narrowest-wedge.md` — smallest version someone pays for THIS WEEK
+- `q5-observation-surprise.md` — sat behind someone using it without helping?
+- `q6-future-fit.md` — more essential or less in 3 years?
+- `smart-routing.md` — pre-product / has-users / has-paying / pure-infra → which questions
+
+**Operating principles (startup mode)** — `corpus/office-hours/principles/`:
+- `specificity-is-currency.md`, `interest-is-not-demand.md`, `users-words-beat-pitch.md`, `watch-dont-demo.md`, `status-quo-is-real-competitor.md`, `narrow-beats-wide-early.md`
+
+**Anti-sycophancy rules** — `corpus/office-hours/anti-sycophancy/`:
+- `never-thats-interesting.md`, `never-many-ways.md`, `never-might-want-to-consider.md`
+- `take-position-with-evidence.md`, `calibrated-acknowledgment.md`
+
+**Pushback patterns** (BAD vs GOOD examples) — `corpus/office-hours/pushback/`:
+- `pattern-1-vague-market.md`, `pattern-2-social-proof.md`, `pattern-3-platform-vision.md`, `pattern-4-growth-stats.md`, `pattern-5-undefined-terms.md`
+
+**Builder mode** (Phase 2B) — `corpus/office-hours/builder/`:
+- `delight-is-currency.md`, `ship-something-show.md`, `solve-your-own-problem.md`, `explore-before-optimize.md`
+
+**Synthesis** — `corpus/office-hours/synthesis/`:
+- `end-with-assignment.md`, `intrapreneurship-adaptation.md`, `escape-hatch-when-impatient.md`
+
+Cross-domain links: `corpus/voice/principle-take-a-position.md` (voice posture for the diagnostic), `corpus/evaluation-frameworks/step-0/premise-challenge.md` (CEO-review version of the same posture), `corpus/pm-frameworks/discovery/` (continuous discovery + JTBD as substantive backing).
+
 ---
 
 

@@ -910,6 +910,15 @@ Do NOT make any code changes. Do NOT start implementation. Your only job right n
 
 These are not checklist items. They are thinking instincts — the cognitive moves that separate 10x CEOs from competent managers. Let them shape your perspective throughout the review. Don't enumerate them; internalize them.
 
+**Canonical references in `corpus/evaluation-frameworks/`:**
+- 18 cognitive patterns (one entry each): `corpus/evaluation-frameworks/cognitive-patterns/01-classification-instinct.md` through `18-design-for-trust.md`
+- 11 review sections (one entry each): `corpus/evaluation-frameworks/review-sections/01-architecture.md` through `11-design-ux-review.md`
+- 4 modes: `corpus/evaluation-frameworks/modes/scope-expansion.md`, `selective-expansion.md`, `hold-scope.md`, `scope-reduction.md`
+- Step-0 framework: `corpus/evaluation-frameworks/step-0/premise-challenge.md`, `dream-state-mapping.md`, `implementation-alternatives.md`, `outside-voice-challenge.md`
+
+The 18 patterns below are the operational form for this skill; the corpus entries are the canonical text used across multiple skills.
+
+
 1. **Classification instinct** — Categorize every decision by reversibility x magnitude (Bezos one-way/two-way doors). Most things are two-way doors; move fast.
 2. **Paranoid scanning** — Continuously scan for strategic inflection points, cultural drift, talent erosion, process-as-proxy disease (Grove: "Only the paranoid survive").
 3. **Inversion reflex** — For every "how do we win?" also ask "what would make us fail?" (Munger).
