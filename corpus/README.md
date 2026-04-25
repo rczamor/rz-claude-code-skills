@@ -33,14 +33,18 @@ corpus/
 └── evaluation-frameworks/    CEO cognitive patterns, 11 review sections, rubrics + anchors
 ```
 
-## Entry schema (every `.md` file)
+## Entry schemas
+
+The schema depends on `entry_type`. The standard schema applies to most entry types; `person` and `template` use sub-schemas because their content shape is genuinely different.
+
+### Standard schema — `rule | framework | pattern | concept | resource | metric`
 
 ```markdown
 ---
 name: {entry name}
 domain: {domain slug}
 source_skill: {originating skill(s), or "research"}
-entry_type: {rule | framework | pattern | template | concept | person | resource | metric}
+entry_type: rule | framework | pattern | concept | resource | metric
 length_target: 300-800
 related: [{other entry file paths}]
 ---
@@ -65,6 +69,61 @@ The failure mode it prevents or outcome it enables. Grounded.
 
 ## Anti-patterns
 1–2 bullets on how teams get this wrong.
+```
+
+### Person sub-schema — `entry_type: person` (thinkers)
+
+```markdown
+---
+name: {Full Name}
+domain: pm-frameworks
+source_skill: product-management | research
+entry_type: person
+length_target: 600-800
+related: [{paths to their frameworks}]
+---
+
+# {Full Name}
+
+## What they're known for
+1–2 paragraphs: canonical contributions, signature works.
+
+## Why they matter to a Riché-facing skill
+Where their thinking applies in Riché's context.
+
+## Their core frameworks (pointers)
+Bullet list of `corpus/pm-frameworks/...` entries that came from them.
+
+## Quotable / signature ideas
+2–3 of their most quotable claims, attributed.
+
+## Where they're wrong / disagree with others
+Contrarian positions, where other thinkers diverge.
+
+## Pointers to source material
+Books / posts / talks / podcasts.
+```
+
+### Template sub-schema — `entry_type: template` (review sections, rubrics, output formats)
+
+Templates describe a structured output (e.g. a review section, a rubric, a step-0 framework) that itself has a specific format. Their H2 sections vary by template type. They MUST include:
+
+- `## What it is` — the template's purpose
+- `## Why it matters` — when and why to use it
+- One or more sections describing the **structure** the template produces (e.g. `## Required output`, `## How to use this section`, `## Output format`)
+- `## Related entries`
+- `## Anti-patterns`
+
+The standard `## How to apply` and `## Examples` sections are optional for templates because the structure-section serves both purposes.
+
+### Schema validation rule
+
+When checking compliance:
+- `entry_type: person` → use the person sub-schema
+- `entry_type: template` → require `What it is`, `Why it matters`, `Related entries`, `Anti-patterns`, plus at least one structure-describing H2
+- All other entry types → use the standard schema (6 H2 sections required)
+
+The `corpus/voice/proof-*` entries are a small exception: they're `entry_type: resource` documenting Riché's proof points. They use `## How to weave it in` instead of `## How to apply` because "weaving" is the actual operation. Acceptable.
 ```
 
 ## Referencing convention — from skills into corpus

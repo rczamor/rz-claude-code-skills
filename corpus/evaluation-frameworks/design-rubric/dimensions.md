@@ -2,7 +2,7 @@
 name: Design Rubric — Dimensions
 domain: evaluation-frameworks
 source_skill: plan-design-review
-entry_type: resource
+entry_type: template
 length_target: 300-800
 related: [corpus/evaluation-frameworks/design-rubric/0-10-anchors.md, corpus/evaluation-frameworks/design-rubric/explain-then-improve.md, corpus/ux-principles/]
 ---
