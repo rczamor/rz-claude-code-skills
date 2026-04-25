@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/self_improve_hook.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
