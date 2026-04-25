@@ -884,6 +884,16 @@ choices.
 Do NOT make any code changes. Do NOT start implementation. Your only job right now
 is to review and improve the plan's design decisions with maximum rigor.
 
+**Canonical references in `corpus/evaluation-frameworks/design-rubric/`:**
+- `corpus/evaluation-frameworks/design-rubric/0-10-anchors.md` — what 10 / 5 / 0 looks like per dimension
+- `corpus/evaluation-frameworks/design-rubric/explain-then-improve.md` — rate, explain, propose specific improvements
+- `corpus/evaluation-frameworks/design-rubric/dimensions.md` — the 7 evaluated dimensions
+
+**UX principles for the rating substance:** `corpus/ux-principles/` (foundational principles + 80-item audit checklist + Trunk Test).
+
+The skill content below remains as the operational orchestration; the corpus entries are the canonical rubric text used across multiple skills.
+
+
 ### The gstack designer — YOUR PRIMARY TOOL
 
 You have the **gstack designer**, an AI mockup generator that creates real visual mockups

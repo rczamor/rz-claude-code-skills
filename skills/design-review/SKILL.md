@@ -1175,6 +1175,14 @@ smarter on their codebase over time.
 These principles govern how real humans interact with interfaces. They are observed
 behavior, not preferences. Apply them before, during, and after every design decision.
 
+**Canonical references in `corpus/ux-principles/`:**
+- Foundational principles: `corpus/ux-principles/principles/three-laws-overview.md` (and the 3 individual laws), `users-scan-not-read.md`, `users-satisfice.md`, `users-muddle-through.md`, `users-dont-read-instructions.md`, `billboard-design-overview.md`, `navigation-as-wayfinding.md`, `goodwill-reservoir.md`, `mobile-same-rules-higher-stakes.md`
+- 10-category audit (atomic per-rule entries): `corpus/ux-principles/audit/01-hierarchy/` (8), `02-typography/` (15), `03-color/` (10), `04-spacing/` (12), `05-interaction/` (11), `06-responsive/` (8), `07-motion/` (6), `08-content/` (11), `09-ai-slop/` (11), `10-performance/` (6)
+- Trunk Test: `corpus/ux-principles/audit/trunk-test.md` + `scoring-pass-partial-fail.md`
+
+The skill content below remains as the operational orchestration; the corpus entries are the canonical text used across multiple skills.
+
+
 ### The Three Laws of Usability
 
 1. **Don't make me think.** Every page should be self-evident. If a user stops
