@@ -1,7 +1,7 @@
 ---
 name: rz-networking-hand-curated-import
 description: >
-  Process a manually-curated Sales Navigator lead CSV through relevance scanning, warm opener drafting, HubSpot dedupe, and contact and deal creation in the Network Building pipeline. Use when Riché provides a CSV of hand-picked leads and wants them enriched and loaded into HubSpot. Trigger when Riché says import this CSV, run hand-curated import, process Sales Nav leads, or load these leads into HubSpot. Stages contacts at the Qualified entry stage with a warm opener seed; never auto-sends DMs.
+  Use when given a manually-curated Sales Navigator lead CSV to enrich, dedupe, score, and load into HubSpot. Trigger phrases: "import this CSV," "run hand-curated import," "process Sales Nav leads," "load these leads into HubSpot." Stages contacts at the Qualified entry stage with a warm opener seed; never auto-sends DMs.
 ---
 
 # Networking Hand-Curated Import
@@ -9,6 +9,16 @@ description: >
 Companion to the 6 automated networking prompts. Same HubSpot conventions, different entry point: Riché has already applied judgment in Sales Nav. This skill does the enrichment, the dedupe, and the data entry.
 
 HubSpot portal: `245808914`. Pipeline: `Network Building`. Entry stage: `Qualified`.
+
+## Quick Reference
+
+| Situation | Load / Do | Notes |
+|---|---|---|
+| User says "import this CSV" or "process Sales Nav leads" | Run the per-row pipeline (steps 1 to 8) | One profile every 8 to 15 seconds, no parallelization |
+| CAPTCHA or rate-limit banner appears | Stop, post status to #brand, save row index | Riché resumes with `--resume <notion_log_url>` |
+| Profile shows zero signals in last 60 days | Mark `no_signal`, draft seed against company or title | Set `seed_basis = company` in log, still create at scores 3+ |
+| Score is 1 or 2 | Send to review queue, do not auto-create | Riché replies `approve N` to force-add |
+| Drafting `warm_opener_seed` | Apply voice guardrails (hard constraints, not style) | No em dashes, no "I noticed", no hedging, calibrate to 2025 to 2026 only |
 
 ## Input contract
 
@@ -128,8 +138,28 @@ Verify on the Contact object before first run. If missing, create via the HubSpo
 - `trigger_source` enum: add option `Sales Navigator` if not present
 - `relevance_score` enum: values `1`, `2`, `3`, `4`, `5`, `override_approved`
 
+## Common Mistakes
+
+| Mistake | What goes wrong | Fix |
+|---|---|---|
+| Inventing signals not on the profile | Bad data lands in HubSpot, opener feels off, trust erodes | If a post is not on the profile, mark `no_signal` and use company-based seed |
+| Auto-DMing instead of staging | Violates the core skill contract (this never sends) | Stage in `warm_opener_seed`; Riché sends or edits from HubSpot |
+| Parallelizing profile fetches or batch-opening tabs | LinkedIn TOS risk, triggers rate-limit and lockout | Human-pace pacing only, one profile every 8 to 15 seconds minimum |
+| Pushing through a CAPTCHA or "unusual activity" banner | Account flag risk, lost session | Stop immediately, post `Manual Import stopped at row N` to #brand, save index, exit |
+| Skipping `no_signal` rows instead of flagging | Loses Riché's manual judgment from the CSV | Never skip; flag in output and create with company-based seed if score 3+ |
+| Drafting seeds with em dashes or "I noticed" hedges | Breaks voice guardrails (hard constraint, not stylistic) | Treat any violation as a bug; rewrite or fail the row |
+
+## Cross-skill connections
+
+**Upstream (reads from these for canonical knowledge):**
+- `rz-copywriting`. The warm opener seed must pass voice rules; this skill enforces them as hard constraints.
+- `rz-networking`. Philosophy that governs every seed: read-aloud test, mutual value, no first-message ask.
+
+**Downstream (hands off to these for execution):**
+- This skill stages contacts in HubSpot at `Qualified` with `warm_opener_seed`. No automated downstream. Riché reviews and sends from HubSpot manually.
+
 ## Related
 
 - Networking Scheduled Task Prompts (Notion page `34aac0ea-4f65-811c-b137-cde78dd064aa`): the 6 automated flows this skill complements
 - Networking Reports (Notion page `34aac0ea-4f65-815e-8e1d-f70598cd7afc`): where run logs go
-- Networking Approach — Principles & Decisions (Notion page `348ac0ea-4f65-8113-85d6-dee4fa4d7063`): governing doc
+- Networking Approach, Principles and Decisions (Notion page `348ac0ea-4f65-8113-85d6-dee4fa4d7063`): governing doc

@@ -1,12 +1,22 @@
 ---
 name: rz-graphic-design
 description: >
-  Use this skill whenever Riché needs visual assets: social media graphics, LinkedIn post images, presentation slides, diagrams, infographics, architecture diagrams, framework visualizations, speaker one-sheets, brand assets, or any visual content. Also trigger when he needs to visualize the five-step context generation process, create comparison diagrams (RAG vs. Context Layer), build slide decks for talks, or create any visual that supports his personal brand. Trigger for any request involving visual design, graphics, illustrations, charts for content, or brand-consistent imagery.
+  Use when producing visual assets: social media graphics, LinkedIn post images, slides, diagrams, infographics, architecture diagrams, framework visualizations, speaker one-sheets, or brand-consistent imagery. Also for visualizing the five-step context generation process, RAG vs Context Layer comparisons, or building talk decks. Skip for product or UI design (use rz-product-design).
 ---
 
 # Graphic Design — Riché Zamor
 
 You produce visual assets that reinforce Riché's "Neural Architect" brand identity. Every visual should feel like it came from the same system: technical, precise, dark-themed, and architecturally structured.
+
+## Quick Reference
+
+| Operation | What you produce | Anchor in corpus |
+|---|---|---|
+| Social graphic (LinkedIn, X) | 1200x627 / 1080x1080 / 1600x900 image, dark bg, mobile readable | `corpus/brand-system/social/` |
+| Diagram (5-step, RAG vs CL, flywheel) | SVG node-and-edge structure, transformation visible | `corpus/brand-system/diagrams/` |
+| Talk slide deck | One idea per slide, dark bg, code/architecture anchors | `corpus/brand-system/presentation/` |
+| Color or type spec lookup | Hex codes, accent rule, font pairing | `corpus/brand-system/identity/palette.yaml`, `typography-rules.md` |
+| Anti-pattern check | Reject pastels, neon, glowing brains, stock photos | `color-anti-patterns.md`, `imagery-anti-patterns.md` |
 
 ## Load from corpus
 
@@ -55,10 +65,23 @@ You produce visual assets that reinforce Riché's "Neural Architect" brand ident
 4. For social, the aspect ratio + mobile readability + non-templated rules apply universally.
 5. When the medium isn't specified, ask first — medium determines spec.
 
+## Common Mistakes
+
+| Mistake | What goes wrong | Fix |
+|---|---|---|
+| Glowing brain or robot imagery | Reads as generic AI stock content, breaks Neural Architect feel | Use node-and-edge diagrams from `corpus/brand-system/diagrams/`, structural visuals only |
+| Stock photos of people pointing at screens | Generic, decorative, not substantive | Replace with diagrams or code anchors per `imagery-anti-patterns.md` |
+| Pastel or neon accent colors | Violates dark theme and the one-accent-per-project rule | Pick one of electric blue, emerald green, or amber from `accent-colors.md` |
+| Decorative gradients or rainbow palettes | AI Slop signal, dilutes brand precision | Solid backgrounds in #0a0a0a to #2a2a2a range, no gradients |
+| Text overlay unreadable at 375px width | Mobile users (majority of feed) cannot parse the graphic | Test thumbnail at phone size, follow `mobile-thumbnail-readability.md` |
+| Canva default templates with stock icons | Reads as templated, not branded | Apply `non-templated-feel.md`, custom layout, IDE-style aesthetic |
+
 ## Cross-skill connections
 
-- The thesis being visualized: `corpus/voice/hook-data-is-not-context.md`
-- Talk content structure: `corpus/content-system/format-talk-abstract.md`
-- Speaking growth: `corpus/growth/speaking/`
-- Universal UX color/contrast/typography rules (apply alongside brand identity): `corpus/ux-principles/audit/02-typography/`, `audit/03-color/`
-- AI Slop detection (avoid the AI-generated visual look): `corpus/ux-principles/audit/09-ai-slop/`
+**Upstream (reads from these for canonical knowledge):**
+- `rz-copywriting`. Voice and hook patterns for any text overlays in graphics. Corpus path: `corpus/voice/`.
+- `rz-product-design`. UX color, contrast, and typography rules to apply when graphics live inside a product surface. Corpus path: `corpus/ux-principles/`.
+
+**Downstream (hands off to these for execution):**
+- `rz-website-audit`. Fires this skill when D5 (OG image consistency) flags missing or off-brand share images.
+- `rz-draft-content`. Invokes this skill in step 8 to generate content graphics that pair with a draft post or article.
