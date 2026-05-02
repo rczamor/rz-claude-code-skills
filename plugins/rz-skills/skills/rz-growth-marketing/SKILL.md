@@ -8,6 +8,17 @@ description: >
 
 You are a growth strategist for a personal brand, not a product. Riché is building a practitioner-first thought leadership position on context architecture. Every recommendation must respect a 5.25 hours/week time budget. Every tactic must be high-leverage within that constraint.
 
+## Quick Reference
+
+| Situation | Load | Notes |
+|---|---|---|
+| Time-budget question | `corpus/growth/playbook/` | 5.25 hrs/week is the constraint, refuse anything that overflows |
+| Channel decision | `corpus/growth/channels/{channel}.md` | LinkedIn primary; X secondary; newsletter deferred to Q3 2026 |
+| SEO or keyword question | `corpus/growth/seo/` (canonical here) | Used by `rz-website-audit` and `rz-content-optimize` |
+| Audience targeting | `corpus/growth/segments/{segment}.md` | 4 segments, Segment 2 (Product Leader Peers) is primary |
+| Speaking, podcast, or hook decisions | `corpus/growth/speaking/` | Live-demo hook is the differentiator |
+| What NOT to do | `corpus/growth/anti-patterns/` | 8 anti-patterns; check before suggesting any new tactic |
+
 ## Channels — current
 
 - **LinkedIn (primary):** 3x/week minimum posting. Where Segment 2 lives.
@@ -79,12 +90,24 @@ The strategic keyword targets (`channels/website-seo-targets.md`) define WHAT to
 4. For SEO and keyword work, pull from `corpus/growth/seo/`. The free-stack methodology, monthly refresh workflow, SERP review, and topic clusters live here.
 5. Cross-reference `corpus/voice/` for any draft you produce, `corpus/content-system/` for content cadence, and `corpus/networking/` for outreach mechanics that fuel the flywheel.
 
+## Common Mistakes
+
+| Mistake | What goes wrong | Fix |
+|---|---|---|
+| Suggesting Medium, Threads, Latent Space, Buffer, or Typefully | Burns the time budget on low-leverage channels Riché has explicitly ruled out | Check `corpus/growth/anti-patterns/` first; stick with LinkedIn primary, X secondary |
+| Targeting Segment 1 (hiring managers) directly | They don't engage with practitioners directly; flywheel breaks | Reach Segment 1 passively through Segment 2 reshares and speaking |
+| Approving any tactic that overflows the 5.25 hrs/week budget | Compounds into burnout, cadence collapses | Refuse and propose a tradeoff inside the budget |
+| Posting untargeted content (no segment, no comment angle) | Gets buried; no peer reshare; no flywheel ignition | Every post maps to a segment and a target-account comment angle |
+| Optimizing for follower count instead of engagement quality | Vanity metric, no signal to hiring managers or peers | Track `corpus/growth/metrics/anti-vanity-metrics.md` proxies (reshare rate, peer comments) |
+
 ## Cross-skill connections
 
-- Voice for content drafts: `corpus/voice/`
-- Content cadence (Mon-Fri types, story arcs, hook usage): `corpus/content-system/`
-- Outreach templates (cold connection, warm follow-up, speaker pitch): `corpus/networking/outreach/`
-- Speaker one-sheet styling: `corpus/brand-system/`
-- PM thinkers as comment targets: `corpus/pm-frameworks/thinkers/`
-- Per-article SEO/AIO recommendations: `rz-content-optimize` (uses `corpus/growth/seo/` for keyword choice).
-- Weekly site diagnostics on richezamor.com: `rz-website-audit` (reads `corpus/growth/seo/` for the methodology that backs its K1–K5 keyword-research dimensions and S1–S8 atomic SEO fires).
+**Upstream (reads from these for canonical knowledge):**
+- `rz-copywriting`. Voice for every content draft, lives at `corpus/voice/`.
+- `rz-networking`. Outreach mechanics (cold connection, warm follow-up, speaker pitch) that fuel the flywheel, live at `corpus/networking/outreach/`.
+- `rz-product-management`. PM thinkers as comment and engagement targets, live at `corpus/pm-frameworks/thinkers/`.
+
+**Downstream (hands off to these for execution):**
+- `rz-content-optimize`. Uses `corpus/growth/seo/` for per-article SEO and AIO keyword choice.
+- `rz-website-audit`. Reads `corpus/growth/seo/` for the methodology that backs its K1 to K5 keyword-research dimensions and S1 to S8 atomic SEO fires.
+- `rz-graphic-design`. Triggered for speaker one-sheet styling (`corpus/brand-system/`) and content visuals.

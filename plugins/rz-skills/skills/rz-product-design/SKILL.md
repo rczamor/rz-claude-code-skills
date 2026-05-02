@@ -8,6 +8,16 @@ description: >
 
 You are a product design partner who thinks in code, not comps. Every design recommendation should be implementable and grounded in the user's job-to-be-done.
 
+## Quick Reference
+
+| Operation | What you produce | Anchor in corpus |
+|---|---|---|
+| AI product UX pattern (reasoning, confidence, failure, context) | Pattern selection plus implementable spec | `corpus/ai-product-ux/patterns/` |
+| Design review or critique | Job-to-be-done check, density check, mobile check, a11y audit | `corpus/ux-principles/audit/`, `corpus/pm-frameworks/discovery/jobs-to-be-done.md` |
+| Wireframe or flow | Functional prototype in code, not static comp | `corpus/ai-product-ux/design-system/web-stack.md` or `admin-ui-stack.md` |
+| Trunk Test on a screen | Pass / partial / fail with rationale | `corpus/ux-principles/audit/trunk-test.md` |
+| Information architecture decision | Wayfinding plan grounded in users-scan-not-read | `corpus/ux-principles/principles/` |
+
 ## Design Philosophy
 
 Riché is "hardline on product design needing to be done in code." Design decisions get validated through working prototypes, not static mockups.
@@ -74,9 +84,23 @@ When reviewing designs or making UI decisions:
 
 This connects to the AI prototyping capability — see `corpus/pm-frameworks/ai-product-pm/ai-prototyping.md` and `hybrid-pm-prototyper.md`.
 
+## Common Mistakes
+
+| Mistake | What goes wrong | Fix |
+|---|---|---|
+| Front-loading complexity on first screen | Users bounce, satisficers never see the depth | Apply progressive disclosure, hide advanced controls behind a clear path |
+| Designing only for the happy path | First real error, timeout, or empty state breaks trust | Design the failure first per `corpus/ai-product-ux/failure/design-the-failure-first.md` |
+| Lorem ipsum or fake data in mocks | Hides real density and edge case problems | Test with real data, follow `corpus/ux-principles/audit/08-content/no-placeholder-lorem.md` |
+| Skipping mobile until the end | Critical paths break at 375px, scope thrash late in build | Mobile check on every flow, follow `mobile-same-rules-higher-stakes.md` |
+| AI output with no confidence indicator | User cannot tell certain from uncertain answers | Add visual and textual confidence per `confidence-indicators.md` |
+| No graceful degradation when AI fails | Users hit a dead end with no recovery path | Build error recovery and hallucination handoff per `corpus/ai-product-ux/failure/` |
+
 ## Cross-skill connections
 
-- Visual identity: `corpus/brand-system/`
-- PM frameworks for the why: `corpus/pm-frameworks/`
-- Voice for any UI copy: `corpus/voice/`
-- Evaluation rubric for design plans: `corpus/evaluation-frameworks/design-rubric/`
+**Upstream (reads from these for canonical knowledge):**
+- `rz-copywriting`. UI copy, error messages, and microcopy follow Riché's voice. Corpus path: `corpus/voice/`.
+- `rz-product-management`. PM frameworks justify the why behind any design decision (jobs-to-be-done, north-star metric). Corpus path: `corpus/pm-frameworks/`.
+- `rz-graphic-design`. Brand visual identity, palette, and dark theme system. Corpus path: `corpus/brand-system/`.
+
+**Downstream (hands off to these for execution):**
+- `rz-website-audit`. Fires this skill when usability dimensions surface flow changes (not content changes).

@@ -8,6 +8,16 @@ description: >
 
 A 6-step weekly diagnostic of richezamor.com against 22 scoring dimensions. Assigns severity, writes a structured Notion report, files up to 5 Linear tasks, and posts a Slack headline. Diagnostic only; fixes route to `rz-content-optimize`, `rz-draft-content`, `rz-copywriting`, and `rz-graphic-design`.
 
+## Quick Reference
+
+| Situation | Load | Notes |
+|---|---|---|
+| Dimension lookup | `corpus/website-audit/dimensions/{seo,aio,categories}/` | 22 entries; trigger, severity, source, fix pattern |
+| Severity score | `corpus/website-audit/methodology/severity-scoring.md` | P0/P1/P2 rules; do not guess |
+| Competitor benchmark | `corpus/website-audit/competitor-benchmarking/` | Tier discipline: Direct + Aspirational full, Adjacent lightweight |
+| Report assembly | `references/step-5-report-assembly.md` | Dated page, properties, body sections, Summary headline |
+| Slack post | `references/step-6-task-issuance-and-slack.md` | One-line headline plus link only; never the full body |
+
 ## Configuration constants
 
 ```
@@ -73,6 +83,16 @@ If a dimension entry's text contradicts these source-of-truth corpora, the sourc
 - Does not write to Google Search Console or Vercel. Read-only on both systems.
 - Does not auto-deprioritize keywords. The 90-days-zero-impressions guardrail prevents silent deletes; deprioritization is a manual call by Riché.
 - Does not retro-edit prior audit pages. Each run lives in its own dated page; the time series is append-only.
+
+## Common Mistakes
+
+| Mistake | What goes wrong | Fix |
+|---|---|---|
+| Auto-deprioritizing keywords before 90 days of zero impressions | Silent deletes erode the keyword set Riché has been building | Honor the 90-days-zero-impressions guardrail; deprioritization is a manual call |
+| Posting full audit body to Slack | Spams `#brand`; buries the headline | Slack gets one line plus the Notion link, nothing more |
+| Creating Notion page before audit completes | Partial pages pollute the time series | Assemble the full report, then create the dated page once |
+| Benchmarking every competitor every week | Burns time on Adjacent tier that does not move the needle | Direct + Aspirational get full; Adjacent gets lightweight only |
+| Letting overall traffic light drift to green by ignoring small issues | Aggregated health hides accumulating P2s | Roll P2 counts up into the headline so small issues stay visible |
 
 ## Cross-skill connections
 

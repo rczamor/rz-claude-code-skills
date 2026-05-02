@@ -8,6 +8,16 @@ description: >
 
 You orchestrate the end-to-end content drafting workflow for Riché Zamor. Given a source (article URL, Daily Context Briefing, or raw thought), you produce a fully populated Content Topic page in the Notion Content Topics database with all derivative assets, optimization recommendations, and a brand-consistent graphic.
 
+## Quick Reference
+
+| Situation | Load | Notes |
+|---|---|---|
+| Source given, full pipeline | All 8 step references plus 5 brand docs | Run autonomously, end-to-end |
+| Determining today's format | `references/step-5-determine-format.md` | Default to weekday calendar slot (Mon hot take, Fri story) |
+| Long-form article needing SEO | Hand off to `rz-content-optimize` (step 7) | Skip for short-forms |
+| Voice calibration on every draft | Hand off to `rz-copywriting` (in step 6) | Voice rules are loaded from there, never re-derived |
+| Final visual asset | Hand off to `rz-graphic-design` (step 8) | Output is SVG plus 2x PNG at 1200x630 |
+
 ## Invocation
 
 Triggered by `/rz-draft-content`, by Riché sharing a source and asking for a draft, or semantically when the conversation is clearly asking for the full pipeline.
@@ -41,9 +51,22 @@ Each step has its own reference file under `references/`. Load the file for the 
 7. **SEO/AIO optimization (if article).** Invoke `rz-content-optimize` on long-form articles only. See `references/step-7-optimization.md`.
 8. **Generate graphic.** Pick a template from `rz-graphic-design` and produce SVG plus 2x PNG at 1200x630. Present final output to chat. See `references/step-8-graphic-generation.md`.
 
+## Common Mistakes
+
+| Mistake | What goes wrong | Fix |
+|---|---|---|
+| Skipping step 4 (ground in brand docs) | Draft drifts from current thesis, terminology, channel positioning | Always fetch the 5 reference docs fresh; Riché updates them monthly |
+| Skipping step 3 (check past work) | Repeats topics already published, misses internal link candidates | Search Content Topics DB and LinkedIn archive before drafting |
+| Invoking `rz-content-optimize` on short-forms | Wasted work; SEO and AIO only apply to long-form articles | Only run step 7 when the format produced an article (Wed deep dive, newsletter) |
+| Checkpointing between steps unnecessarily | Breaks autonomous mode, slows the user down | Only stop on blocking ambiguity (source unreachable, conflated topics, missing doc) |
+| Defaulting to today's calendar slot when topic demands otherwise | Format mismatch (e.g., a story forced into a hot take) | Override the calendar when `step-5` reasoning says the topic needs a different format |
+
 ## Cross-skill connections
 
-- `rz-copywriting`: voice calibration for every draft
-- `rz-content-optimize`: invoked in step 7 when a long-form article exists
-- `rz-graphic-design`: invoked in step 8 for template selection and visual system
-- `rz-growth-marketing`: consult when Linked Briefing data suggests a growth-specific angle
+**Upstream (reads from these for canonical knowledge):**
+- `rz-copywriting`. Voice calibration on every draft. Loaded in step 6 to ensure voice match against Fatal Fifteen, anti-patterns, and terminology.
+- `rz-growth-marketing`. Consulted in steps 1-2 when the source comes from Daily Context Briefing or when SEO and keyword angle informs the draft direction. Owns SEO methodology used downstream.
+
+**Downstream (hands off to these for execution):**
+- `rz-content-optimize`. Invoked in step 7 when a long-form article exists. Produces the "SEO & AIO Optimization" block on the Content Topic page.
+- `rz-graphic-design`. Invoked in step 8 for template selection, visual system application, and final SVG plus PNG output.

@@ -8,6 +8,17 @@ description: >
 
 You help Riché build mutual-value relationships where both parties are smarter for knowing each other. Networking is career infrastructure, not contact collecting.
 
+## Quick Reference
+
+| Situation | Load | Notes |
+|---|---|---|
+| Drafting any message (cold, warm, dormant, advisory) | `corpus/networking/outreach/{template}.md` | Match template to situation; never first-message ask |
+| Assigning or moving someone between tiers | `corpus/networking/tiers/` | 4 tiers, distinct cadence per tier |
+| Conference or event prep | `corpus/networking/conferences/` | Before, during, 48-hour follow-up sequence |
+| Framing decision (is this read-aloud test passing?) | `corpus/networking/philosophy/` | Mutual-value test gates every send |
+| Slack or in-person community engagement | `corpus/networking/communities/` | 2:1 answer-to-promotion ratio |
+| Tracking and weekly review of contacts | `corpus/networking/crm/` | 5-field data model, lightweight tooling |
+
 ## Load from corpus
 
 **Philosophy** — `corpus/networking/philosophy/`:
@@ -51,10 +62,23 @@ You help Riché build mutual-value relationships where both parties are smarter 
 3. Pull the matching outreach template (cold / warm / speaker / dormant / advisory) for any draft.
 4. Use the conference prep + during + 48-h follow-up sequence for events.
 
+## Common Mistakes
+
+| Mistake | What goes wrong | Fix |
+|---|---|---|
+| Cold pitching with first-message ask | Fails the read-aloud test, signals "this person wants something" | Lead with context or specific observation; no ask in message one |
+| Connecting without a context-architecture angle | Generic outreach blends in, gets ignored | Anchor every message in a shared problem or specific work |
+| Following up without referencing specific exchange | Reads as templated, breaks the mutual-value frame | Quote or reference the exact conversation, post, or session |
+| Treating Tier 4 dormant contacts like Tier 2 | Cold reactivations land flat without shared memory | Use `network-activation-dormant.md` pattern: shared memory plus brief update plus soft ask |
+| Promoting in Slack groups before contributing | Violates 2:1 answer-to-promotion ratio, gets muted | Ship 2 substantive answers before any self-reference |
+
 ## Cross-skill connections
 
-- Every message uses `corpus/voice/` (voice rules apply universally)
-- Audience prioritization: `corpus/growth/segments/`
-- Speaker hook lives in growth: `corpus/growth/speaking/the-hook.md`
-- Substantive responses to advisory inquiries: `corpus/pm-frameworks/`
-- Speaker one-sheet styling: `corpus/brand-system/`
+**Upstream (reads from these for canonical knowledge):**
+- `rz-copywriting`. Voice rules for every message Riché sends, lives at `corpus/voice/`.
+- `rz-growth-marketing`. Audience segments and prioritization, lives at `corpus/growth/segments/`. Speaker hook lives at `corpus/growth/speaking/the-hook.md`.
+- `rz-product-management`. Substance for advisory inquiry responses, lives at `corpus/pm-frameworks/`.
+
+**Downstream (hands off to these for execution):**
+- `rz-graphic-design`. Triggered when speaker one-sheet styling is needed (`corpus/brand-system/`).
+- `rz-networking-hand-curated-import`. Triggered when a Sales Nav CSV import is part of the workflow.

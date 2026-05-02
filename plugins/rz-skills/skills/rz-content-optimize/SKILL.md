@@ -8,6 +8,17 @@ description: >
 
 You produce heavy SEO and AIO recommendations for long-form articles. Output is prescriptive and actionable. Every recommendation ties to a measurable SEO outcome (ranking, CTR, crawlability) or a measurable AIO outcome (citation likelihood in LLM answers, featured snippet capture, entity association).
 
+## Quick Reference
+
+| Situation | Load | Notes |
+|---|---|---|
+| Optimizing a draft article | Article body, target topic, slug (or recommend one) | Produce the 12-section block under "SEO & AIO Optimization" |
+| Keyword research and SERP analysis | `references/keyword-research.md` plus `corpus/growth/seo/` | SEO methodology owned by `rz-growth-marketing` |
+| Title, meta, slug variants | `references/title-meta-slug.md` | 3 title options, 1 primary plus 1 alt meta, slug under 60 chars |
+| H2 structure and entity coverage | `references/content-structure.md` | Current vs. recommended; name entities for LLM citation |
+| Quotables, schema, AIO hooks | `references/aio-optimization.md` | 3-5 pull-quote sentences, JSON-LD, question-based H2s |
+| Internal and external linking | `references/internal-and-external-linking.md` | Link to other Content Topics, cite 3-5 high-authority sources |
+
 ## When This Skill Runs
 
 Two entry points:
@@ -54,9 +65,21 @@ This skill produces optimization recommendations. It does NOT rewrite Riché's p
 
 Do NOT stuff keywords. Do NOT recommend changes that compromise the piece's voice. If an SEO best practice conflicts with the Content Style Guide, prioritize voice and say so explicitly.
 
-## Cross-References
+## Common Mistakes
 
-- `rz-copywriting`, source of truth for voice and style. Never override.
-- `rz-draft-content`, the orchestrating skill that typically invokes this one.
-- Content Style Guide (Notion `337ac0ea-4f65-8103-91cd-db7ab5319ab7`), the voice rules this skill must respect.
-- Content Strategy (Notion `333ac0ea-4f65-8151-8651-d730d706e017`), the domain/format assignments that inform keyword selection.
+| Mistake | What goes wrong | Fix |
+|---|---|---|
+| Rewriting Riché's prose to fit a keyword | Voice match breaks, recommendation overrides source of truth | Present a side-by-side suggested edit; let Riché decide |
+| Stuffing the primary keyword into every H2 | Reads as SEO content, kills AIO citation odds | One primary keyword per H2 maximum, secondaries used naturally |
+| Skipping competitor SERP review | Differentiation claims become guesses, output loses credibility | Run step 13 from `references/competitor-differentiation.md` on every pass |
+| Skipping a section because "it doesn't apply" | Output is incomplete, downstream readers cannot tell if it was considered | State explicitly that the section does not apply and why |
+| Recommending external links without authority check | Sends ranking signal to weak sources | Verify domain authority before listing the 3-5 external citations |
+
+## Cross-skill connections
+
+**Upstream (reads from these for canonical knowledge):**
+- `rz-copywriting`. Source of truth for voice and style. This skill never overrides it. When a recommendation conflicts with voice, this skill flags it and lets Riché decide.
+- `rz-growth-marketing`. Owns the canonical SEO methodology (free-stack approach, topic clusters, Target Keywords DB) loaded from `corpus/growth/seo/`. This skill applies that methodology per-article.
+
+**Downstream (hands off to these for execution):**
+- `rz-draft-content`. This skill is invoked by step 7 of the draft pipeline. Output is the structured "SEO & AIO Optimization" block written into the Content Topic's Notion page.
