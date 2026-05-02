@@ -16,7 +16,8 @@
 | 8 | ux-principles            | 100     | [INVENTORY/ux-principles.md](INVENTORY/ux-principles.md) |
 | 9 | ai-product-ux            | 30      | [INVENTORY/ai-product-ux.md](INVENTORY/ai-product-ux.md) |
 | 10| evaluation-frameworks    | 40      | [INVENTORY/evaluation-frameworks.md](INVENTORY/evaluation-frameworks.md) |
-|   | **Total**                | **531** | |
+| 11| website-audit            | 37      | (this file, section 11)                                                  |
+|   | **Total**                | **585** | |
 
 The total exceeds the 450 estimate from the previous session because the granular per-audit-item approach in `ux-principles` (one entry per atomic rule) and the deeper PM/Growth coverage are richer than the original ballpark. If 531 is too many, the natural levers to reduce:
 
@@ -56,6 +57,9 @@ Core AI UX patterns (6), confidence & calibration (4), failure & graceful degrad
 
 ### 10. evaluation-frameworks (40 entries)
 18 cognitive patterns (Great-CEO thinking instincts), 11 review sections (architecture → design), 4 review modes (SCOPE EXPANSION / SELECTIVE / HOLD / REDUCTION), Step-0 framework (4), design rating rubric (3).
+
+### 11. website-audit (37 entries)
+Backs the `rz-website-audit` skill, which runs a weekly diagnostic of richezamor.com against 22 scoring dimensions. Folder structure: `dimensions/seo/` (8 atomic SEO entries S1–S8), `dimensions/aio/` (7 atomic AIO entries A1–A7), `dimensions/categories/` (7 category-level entries: traffic-engagement, usability, design, brand, technical-qa, chatbot, keyword-research), `methodology/` (6 entries covering bootstrap, parallel data collection, severity scoring, report assembly, task issuance, slack notification), `keyword-research/` (4 entries on the free-stack methodology, the monthly Keyword Planner refresh, the SERP review protocol, and the 7 priority Context Layer topic clusters), `databases/` (3 entries documenting the Target Keywords, Competitors, and Weekly Audits Notion schemas), and `competitor-benchmarking/` (2 entries: the read protocol and what gets benchmarked per competitor). All entries follow the standard frontmatter and section order; index at `corpus/website-audit/index.yaml`.
 
 ## Source attribution summary
 
